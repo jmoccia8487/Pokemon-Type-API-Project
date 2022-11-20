@@ -33,7 +33,7 @@ protected void updateZooData()
    try
    {  
       HttpRequest postRequest = HttpRequest.newBuilder()
-         .uri = new URI("https://zoo-animal-api.herokuapp.com/");
+         .uri = new URI("https://zoo-animal-api.herokuapp.com/animals/rand");
          .GET()
          .build();
       

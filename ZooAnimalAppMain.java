@@ -21,6 +21,7 @@ public class ZooAnimalAppMain extends Application
       Scene scene = new Scene(root);
       stage.setTitle("Zoo Animal Fact Generator");
       
+      // Set the scene and display it to the user
       stage.setScene(scene);
       stage.show();
    }
