@@ -27,19 +27,28 @@ public class FXMLPokeTypeAppController implements Initializable
    // The annotations are required to tie to Scene Builder 
    
 
+   // Used to retrieve data from the API   
+   private HttpClient client;
+   
+   // Top-level class heirarchy that saves the GSON processed JSON
+   private Pokemon pokemon; 
 
+   /*Once the Pokemon data is downloaded, this method is called
+   to parse the JSON and create a plain old java object (POJO)*/
    protected void updatePokeData()
    {
       try
       {  
          HttpRequest postRequest = HttpRequest.newBuilder()
-            .uri = new URI("https://pokeapi.co/api/v2/pokemon/");
-            .GET()
+            .uri(new URI("https://pokeapi.co/api/v2/pokemon?limit=2000&offset=0"));
+            //.POST(BodyPublishers.ofString(jsonRequest))
             .build();
       
-         client.sendAsync(request, BodyHandlers.ofString())
-            .thenApply(HttpResponse::body)
-            .thenAccept(this::processPokeData);         
+         HttpClient client = HttpClient.newHttpClient();
+         
+         HttpResponse<String> postResponse = client.send(postRequest, BodyHandlers.ofString());
+         
+         System.out.println(postResponse.body());        
       }
    
       catch (URISyntaxException e)
