@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.util.*;
 
-public class ZooAnimalAppMain extends Application
+public class PokeTypeAppMain extends Application
 {
    public static void main(String[] args)
    {
@@ -19,7 +19,7 @@ public class ZooAnimalAppMain extends Application
       // Loads the GUI from FXML built in Scene Builder
       Parent root = FXMLLoader.load(getClass().getResource(""));
       Scene scene = new Scene(root);
-      stage.setTitle("Zoo Animal Fact Generator");
+      stage.setTitle("Pokemon Type Generator");
       
       // Set the scene and display it to the user
       stage.setScene(scene);

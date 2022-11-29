@@ -21,30 +21,31 @@ import java.io.IOException;
 
 import com.google.gson.Gson;
 
-public class FXMLZooAnimalAppController implements Initializable
+public class FXMLPokeTypeAppController implements Initializable
 {
    // All of the variables referenced from the FXML file
    // The annotations are required to tie to Scene Builder 
    
 
 
-protected void updateZooData()
-{
-   try
-   {  
-      HttpRequest postRequest = HttpRequest.newBuilder()
-         .uri = new URI("https://zoo-animal-api.herokuapp.com/animals/rand");
-         .GET()
-         .build();
-      
-      client.sendAsync(request, BodyHandlers.ofString())
-         .thenApply(HttpResponse::body)
-         .thenAccept(this::processAnimalData);         
-   }
-   
-   catch (URISyntaxException e)
+   protected void updatePokeData()
    {
-      System.out.println("Issue with request");
+      try
+      {  
+         HttpRequest postRequest = HttpRequest.newBuilder()
+            .uri = new URI("https://pokeapi.co/api/v2/pokemon/");
+            .GET()
+            .build();
+      
+         client.sendAsync(request, BodyHandlers.ofString())
+            .thenApply(HttpResponse::body)
+            .thenAccept(this::processPokeData);         
+      }
+   
+      catch (URISyntaxException e)
+      {
+         System.out.println("Issue with request");
+      }
+   
    }
-}
 }     

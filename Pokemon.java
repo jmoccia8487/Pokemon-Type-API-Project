@@ -2,7 +2,7 @@
 // This class heirarchy was built by working through the API data structure
 // A sample of this data is found in ReferenceAPIData.json
 
-public class Animal
+public class Pokemon
 {
    public Main main;
 }
