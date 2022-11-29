@@ -33,8 +33,42 @@ public class FXMLPokeTypeAppController implements Initializable
    // Top-level class heirarchy that saves the GSON processed JSON
    private Pokemon pokemon; 
 
-   /*Once the Pokemon data is downloaded, this method is called
-   to parse the JSON and create a plain old java object (POJO)*/
+   // Updates the GUI to reflect new changes. 
+   protected void updateUI()
+   {
+      // Update the time data was refreshed.
+      SimpleDateFormat fmt = new SimpleDateFormat("MM/dd/yy hh:mm a");
+      updateLabel.setText(fmt.format(this.updateTime));
+   }
+      
+   /*
+   Once the Pokemon data is downloaded, this method is called
+   to parse the JSON and create a plain old java object (POJO)
+   */
+   protected void processPokemonData(String data)
+   {
+      // Save the time this data was retrieved to be displayed in the GUI
+      this.updateTime = new Date();
+      
+      // Some debugging text for the console.
+      System.out.println(data);      
+      
+      // Converts the JSON data to a POJO
+      Gson gson = new Gson();
+      this.pokemon = gson.fromJson(data, Pokemon.class);  
+      
+      // Schedule UI updates on the GUI thread
+      Platform.runLater( new Runnable() 
+      {
+         public void run()
+         {
+            updateUI();
+         }
+      });
+
+   }
+   
+   // This method runs when the app is initialized
    protected void updatePokeData()
    {
       try
