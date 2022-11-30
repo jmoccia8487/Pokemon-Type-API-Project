@@ -29,6 +29,7 @@ public class PokeTypeAppMain extends Application
    @Override
    public void stop()
    {
-      System.out.println("Stop is called in Application class");
+      // This will be displayed when the app is closed
+      System.out.println("The application has been exited");
    }
 }
