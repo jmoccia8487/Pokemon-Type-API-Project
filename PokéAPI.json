@@ -1,6 +1,6 @@
-// New API Data
-{
-  "count": 1154,
+// New Pokemon API Data
+
+"count": 1154,
   "next": null,
   "previous": null,
   "results": [
@@ -4621,4 +4621,5 @@
       "url": "https://pokeapi.co/api/v2/pokemon/10249/"
     }
   ]
-}
+}</code></pre></div><div class="JsonViewer-module__toolbar--1qg2d"><label><input type="checkbox" checked=""> View raw JSON (109.144 kB, 4623 lines)</label></div></div></div><div class="index-module__faqs--2b4hu"><div class="index-module__faq--3ZCqY"><h2 class="index-module__faq_title--UhEAD">What is this?</h2><div class="index-module__faq_content--2z4fp"><p>This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.</p><p>We've covered everything from Pokémon to Berry Flavors.</p></div></div><div class="index-module__faq--3ZCqY"><h2 class="index-module__faq_title--UhEAD">Where do I start?</h2><div class="index-module__faq_content--2z4fp"><p>We have awesome <a href="https://pokeapi.co/docs/v2">documentation</a> on how to use this API. It takes minutes to get started.</p><p>This API will always be publicly available and will never require any extensive setup process to consume.</p></div></div></div></div></div></main><footer id="site-footer" class="Footer-module__footer--3nalg"><div class="Footer-module__container--yg5jX"><div>Created by <a href="https://phalt.github.io/">Paul Hallett</a> and other <a href="https://github.com/PokeAPI/pokeapi#contributing">PokéAPI contributors</a> around the world. Pokémon and Pokémon character names are trademarks of Nintendo.</div><div><a href="https://pokeapi.statuspage.io/"><img alt="Status" src="./PokéAPI_files/json"></a></div></div></footer></div><script type="text/javascript">window.__routeInfo = JSON.parse("{\"template\":\"__react_static_root__/src/pages/index.js\",\"sharedHashesByProp\":{},\"data\":{},\"path\":\"/\",\"sharedData\":{},\"siteData\":{\"alerts\":[{\"htmlMessage\":\"<p>PokeAPI proudly announces Beta support for GraphQL. Access our free console at <a href=\\\"https://beta.pokeapi.co/graphql/console/\\\">beta.pokeapi.co/graphql/console</a> and take a look at the <a href=\\\"/docs/graphql\\\">documentation</a></p>\\n\",\"level\":\"success\",\"id\":\"359b722e\"},{\"htmlMessage\":\"<p><strong>Sword and Shield</strong> data might be inaccurate and lacking in various aspects due to the fact that it is not taken directly from Nintendo&#39;s Pokemon ROMs. If you spot any mistake, please report it <a href=\\\"https://github.com/PokeAPI/pokedex/issues\\\">here</a></p>\\n\",\"level\":\"info\",\"id\":\"c5278044\"}]}}");</script><script defer="" type="text/javascript" src="./PokéAPI_files/styles.8d2856b2.js.download"></script><script defer="" type="text/javascript" src="./PokéAPI_files/vendors_main.17a02a7f.js.download"></script><script defer="" type="text/javascript" src="./PokéAPI_files/main.94329589.js.download"></script><script defer="" src="./PokéAPI_files/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon="{&quot;rayId&quot;:&quot;771462090f418c21&quot;,&quot;version&quot;:&quot;2022.11.3&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;9fbcf60ab0bc4d7d9c24cc0a2b3b7af0&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+</body></html>

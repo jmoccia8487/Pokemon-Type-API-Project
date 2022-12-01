@@ -1,2 +1,14 @@
-# Zoo Animal API Project
- Web API project
+# Pokemon Type API Project
+Web API project
+ 
+# Important Files
+
+* __PokeTypeAppMain.java__ - This contains the main method and the code to load the FXML file.
+* __FXMLPokeTypeAppController.java__ - The main part of the app. It contains the methods that are used to run when text is entered as well as the code to access the API.
+* __Pokemon.java__ - Top-Level of the class heirarchy used to store API data, Pokemon Type, for the app.
+* __styles.css__ - A CSS file that is linked to Scene Builder, it styles the app's components.
+* __PokeAPI.json__ - JSON data from the API that consists of all the pokemon created and their names.
+
+# Notes
+
+* This project is configured to work with the JGrasp IDE.

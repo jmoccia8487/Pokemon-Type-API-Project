@@ -73,15 +73,14 @@ public class FXMLPokeTypeAppController implements Initializable
    // This method runs when the app is initialized
    protected void updatePokeData()
    {
+      HttpClient client = HttpClient.newHttpClient();
+
       try
       {  
         HttpRequest postRequest = HttpRequest.newBuilder()
            .uri(new URI("https://pokeapi.co/api/v2/pokemon?limit=2000&offset=0")).GET().build();
          //.POST(BodyPublishers.ofString(jsonRequest))
-            
-      
-         HttpClient client = HttpClient.newHttpClient();
-         
+                     
          //HttpResponse<String> postResponse = client.send(postRequest, BodyHandlers.ofString());
          
          // Makes a request to the website to get the data
