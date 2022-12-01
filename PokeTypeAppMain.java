@@ -30,6 +30,6 @@ public class PokeTypeAppMain extends Application
    public void stop()
    {
       // This will be displayed when the app is closed
-      System.out.println("The application has been exited");
+      System.out.println("The application has been closed");
    }
 }

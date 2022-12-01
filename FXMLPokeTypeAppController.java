@@ -83,6 +83,8 @@ public class FXMLPokeTypeAppController implements Initializable
          HttpClient client = HttpClient.newHttpClient();
          
          //HttpResponse<String> postResponse = client.send(postRequest, BodyHandlers.ofString());
+         
+         // Makes a request to the website to get the data
          client.sendAsync(postRequest, BodyHandlers.ofString())
                .thenApply(HttpResponse::body)
                .thenAccept(this::processPokemonData);
@@ -102,6 +104,9 @@ public class FXMLPokeTypeAppController implements Initializable
    @Override
    public void initialize(URL location, ResourceBundle resources)
    {
-      Preferences p = Preferences.userNodeForPackage(FXMLPokeTypeAppController.class);  
+      Preferences p = Preferences.userNodeForPackage(FXMLPokeTypeAppController.class);
+      
+      // Get new Pokemon Data
+      updatePokeData();  
    }  
 }

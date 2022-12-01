@@ -4,5 +4,5 @@
 
 public class Pokemon
 {
-   
+   public Types types;
 }
