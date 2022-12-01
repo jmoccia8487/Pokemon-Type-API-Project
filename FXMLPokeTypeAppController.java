@@ -7,6 +7,10 @@ import java.util.Date;
 import java.util.prefs.Preferences;
 import java.text.SimpleDateFormat;
 import javafx.application.Platform;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -21,6 +25,33 @@ import com.google.gson.Gson;
 
 public class FXMLPokeTypeAppController implements Initializable
 {
+   @FXML
+   private TextArea dataOutput;
+
+   @FXML
+   private Label heightOutput;
+
+   @FXML
+   private Label nameOutput;
+
+   @FXML
+   private Button searchButton;
+
+   @FXML
+   private Label titleLabel;
+
+   @FXML
+   private Label typeOutput;
+   
+   @FXML
+    private Label updateTimeLabel;
+
+   @FXML
+   private TextField userInput;
+
+   @FXML
+   private Label weightOutput;
+    
    // All of the variables referenced from the FXML file
    // The annotations are required to tie to Scene Builder 
    @FXML 
@@ -40,7 +71,7 @@ public class FXMLPokeTypeAppController implements Initializable
    {
       // Update the time data was refreshed.
       SimpleDateFormat fmt = new SimpleDateFormat("MM/dd/yy hh:mm a");
-      updateLabel.setText(fmt.format(this.updateTime));
+      updateTimeLabel.setText(fmt.format(this.updateTime));
    }
       
    /*

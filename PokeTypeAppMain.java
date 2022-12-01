@@ -17,7 +17,7 @@ public class PokeTypeAppMain extends Application
    public void start(Stage stage) throws Exception
    {
       // Loads the GUI from FXML built in Scene Builder
-      Parent root = FXMLLoader.load(getClass().getResource(""));
+      Parent root = FXMLLoader.load(getClass().getResource("PokemonView.fxml"));
       Scene scene = new Scene(root);
       stage.setTitle("Pokemon Type Generator");
       

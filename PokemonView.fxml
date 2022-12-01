@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="378.0" style="-fx-background-color: red; -fx-border-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXMLPokeTypeAppController">
+   <children>
+      <Label id="titleLabel" fx:id="titleLabel" alignment="TOP_RIGHT" layoutX="34.0" layoutY="95.0" prefHeight="58.0" prefWidth="294.0" text="Pokemon Type Generator  " wrapText="true">
+         <font>
+            <Font name="System Bold Italic" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="updateTimeLabel" alignment="CENTER" layoutX="3.0" layoutY="565.0" prefHeight="26.0" prefWidth="372.0" text="Date Accessed">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="userInput" layoutX="22.0" layoutY="481.0" prefHeight="54.0" prefWidth="334.0" style="-fx-border-color: black; -fx-background-color: white;" />
+      <TextArea fx:id="dataOutput" layoutX="19.0" layoutY="139.0" prefHeight="214.0" prefWidth="334.0" style="-fx-border-color: black; -fx-background-color: red;" text="&#10;Pokemon Name:  &#10;&#10;Type(s):&#10;&#10;Average Height:&#10;&#10;Average Weight:&#10;">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </TextArea>
+      <Label alignment="CENTER" layoutX="22.0" layoutY="536.0" opacity="0.62" prefHeight="18.0" prefWidth="334.0" text="Please Use All Lowercase!" />
+      <ImageView fitHeight="184.0" fitWidth="277.0" layoutX="63.0" layoutY="154.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Downloads/pokemon-logo-black-transparent.png" />
+         </image>
+      </ImageView>
+      <Circle fill="#1fff3a" layoutX="160.0" layoutY="32.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fill="#e8ff1f" layoutX="138.0" layoutY="32.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fill="RED" layoutX="113.0" layoutY="32.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fill="#acb7c1" layoutX="52.0" layoutY="52.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fill="DODGERBLUE" layoutX="52.0" layoutY="52.0" radius="33.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
+      <Ellipse fill="#f4e9e9" layoutX="37.0" layoutY="41.0" radiusX="15.0" radiusY="6.0" rotate="140.0" stroke="BLACK" strokeType="INSIDE" />
+      <Ellipse fill="DODGERBLUE" layoutX="285.0" layoutY="362.0" radiusX="30.0" radiusY="3.0" stroke="BLACK" strokeType="INSIDE" />
+      <Ellipse fill="#ebff1f" layoutX="219.0" layoutY="362.0" radiusX="30.0" radiusY="3.0" stroke="BLACK" strokeType="INSIDE" />
+      <Ellipse fill="#ff2121" layoutX="85.0" layoutY="362.0" radiusX="30.0" radiusY="3.0" stroke="BLACK" strokeType="INSIDE" />
+      <Ellipse fill="#67ff21" layoutX="151.0" layoutY="362.0" radiusX="30.0" radiusY="3.0" stroke="BLACK" strokeType="INSIDE" />
+      <ImageView fitHeight="101.0" fitWidth="122.0" layoutX="46.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Downloads/1273648-200.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="219.0" layoutY="396.0" stroke="BLACK" strokeType="INSIDE" width="31.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="249.0" layoutY="424.0" stroke="BLACK" strokeType="INSIDE" width="31.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="249.0" layoutY="396.0" stroke="BLACK" strokeType="INSIDE" width="31.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="277.0" layoutY="424.0" stroke="BLACK" strokeType="INSIDE" width="31.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="277.0" layoutY="396.0" stroke="BLACK" strokeType="INSIDE" width="31.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="308.0" layoutY="396.0" stroke="BLACK" strokeType="INSIDE" width="31.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="189.0" layoutY="396.0" stroke="BLACK" strokeType="INSIDE" width="31.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="219.0" layoutY="424.0" stroke="BLACK" strokeType="INSIDE" width="31.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="189.0" layoutY="424.0" stroke="BLACK" strokeType="INSIDE" width="31.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="28.0" layoutX="308.0" layoutY="424.0" stroke="BLACK" strokeType="INSIDE" width="31.0" />
+      <Button fx:id="searchButton" layoutX="239.0" layoutY="495.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" text="Ok" />
+      <Label fx:id="nameOutput" layoutX="153.0" layoutY="154.0" prefHeight="44.0" prefWidth="31.0" text="--">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="weightOutput" layoutX="153.0" layoutY="284.0" prefHeight="38.0" prefWidth="31.0" text="--">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="heightOutput" layoutX="153.0" layoutY="241.0" prefHeight="37.0" prefWidth="24.0" text="--">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="typeOutput" layoutX="97.0" layoutY="198.0" prefHeight="44.0" prefWidth="31.0" text="--">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
