@@ -61,14 +61,28 @@ public class FXMLPokeTypeAppController implements Initializable
    private HttpClient client;
    
    // This is a Top-level class heirarchy that saves the GSON processed JSON
-   private Pokemon pokemon; 
+   private PokemonData pokemonData; 
+   
+   //
+   private Pokemon pokemon;
    
    // Keeps track of last time the pokemon data was updated
    private Date updateTime;
+   
+   // Action to perform when the refresh button is pressed
+   @FXML 
+   protected void handleSearchButtonAction(ActionEvent event)
+   {
+      updatePokeData();       
+   }
+
 
    // Updates the GUI to reflect new changes. 
    protected void updateUI()
    {
+      // Set the nameOutput label
+      nameOutput.setText(this.pokemonData.pokemon.name);
+
       // Update the time data was refreshed.
       SimpleDateFormat fmt = new SimpleDateFormat("MM/dd/yy hh:mm a");
       updateTimeLabel.setText(fmt.format(this.updateTime));
@@ -88,7 +102,7 @@ public class FXMLPokeTypeAppController implements Initializable
       
       // Converts the JSON data to a POJO
       Gson gson = new Gson();
-      this.pokemon = gson.fromJson(data, Pokemon.class);  
+      this.pokemonData = gson.fromJson(data, PokemonData.class);  
       
       // Schedule UI updates on the GUI thread
       Platform.runLater( new Runnable() 
@@ -104,12 +118,16 @@ public class FXMLPokeTypeAppController implements Initializable
    // This method runs when the app is initialized
    protected void updatePokeData()
    {
+   	  // The app can use the same client for its entire life
+      if(this.client == null)
+         this.client = HttpClient.newHttpClient();
+		 
       HttpClient client = HttpClient.newHttpClient();
 
       try
       {  
         HttpRequest postRequest = HttpRequest.newBuilder()
-           .uri(new URI("https://pokeapi.co/api/v2/pokemon?limit=2000&offset=0")).GET().build();
+           .uri(new URI("https://pokeapi.co/api/v2/pokemon/")).GET().build();
          //.POST(BodyPublishers.ofString(jsonRequest))
                      
          //HttpResponse<String> postResponse = client.send(postRequest, BodyHandlers.ofString());
