@@ -64,7 +64,7 @@ public class FXMLPokeTypeAppController implements Initializable
    private PokemonData pokemonData; 
    
    //
-   private Pokemon pokemon;
+   private Results results;
    
    // Keeps track of last time the pokemon data was updated
    private Date updateTime;
@@ -72,7 +72,7 @@ public class FXMLPokeTypeAppController implements Initializable
    // Action to perform when the refresh button is pressed
    @FXML 
    protected void handleSearchButtonAction(ActionEvent event)
-   {
+   {      
       updatePokeData();       
    }
 
@@ -80,12 +80,21 @@ public class FXMLPokeTypeAppController implements Initializable
    // Updates the GUI to reflect new changes. 
    protected void updateUI()
    {
-      // Set the nameOutput label
-      nameOutput.setText(this.pokemonData.pokemon.name);
-
       // Update the time data was refreshed.
-      SimpleDateFormat fmt = new SimpleDateFormat("MM/dd/yy hh:mm a");
+      SimpleDateFormat fmt = new SimpleDateFormat("MM/dd/yy");
       updateTimeLabel.setText(fmt.format(this.updateTime));
+
+      // Set the nameOutput label
+      nameOutput.setText(nameOutput.getText());
+      
+      // Set the typeOutput Label
+      typeOutput.setText(this.pokemonData.types.type);
+      
+      // Set the heightOutput Label
+      heightOutput.setText( String.format("%d\u00B0" + "feet", this.pokemonData.types.height));
+      
+      // Set the lengthOutput Label
+      weightOutput.setText( String.format("%d\u00B0" + "pounds", this.pokemonData.types.weight));
    }
       
    /*

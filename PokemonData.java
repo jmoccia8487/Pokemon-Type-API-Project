@@ -5,5 +5,5 @@
 public class PokemonData
 {
    public Types types;
-   public Pokemon pokemon;
+   public Results results;
 }
