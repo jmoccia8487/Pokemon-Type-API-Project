@@ -88,33 +88,11 @@ public class FXMLPokeTypeAppController implements Initializable
       updateTimeLabel.setText(fmt.format(this.updateTime));
 
       // Set the nameOutput label
-      nameOutput.setText(this.pokemonData.forms.name);
+      nameOutput.setText(userInput.getText());
    
-      /* Added another API call to see if it fixes my problem*/
-                           // !!!!!!!!! //
-      try
-      {  
-        HttpRequest postRequest = HttpRequest.newBuilder()
-           .uri(new URI("https://pokeapi.co/api/v2/pokemon/" + userInput)).GET().build();
-         //.POST(BodyPublishers.ofString(jsonRequest))
-                     
-         //HttpResponse<String> postResponse = client.send(postRequest, BodyHandlers.ofString());
-         
-         // Makes a request to the website to get the data
-         client.sendAsync(postRequest, BodyHandlers.ofString()).thenApply(HttpResponse::body).thenAccept(this::processPokemonData);
-                 
-      }
-   
-      catch (URISyntaxException e)
-      {
-         System.out.println("Issue with request");
-      }
-      
       // Used to show the app is collecting data
-      System.out.println("Updating Pokemon Data...");
+      //System.out.println("Updating Pokemon Data...");
    
-
-      
       // Set the typeOutput Label
       typeOutput.setText(this.pokemonData.types.name);
       
@@ -161,8 +139,9 @@ public class FXMLPokeTypeAppController implements Initializable
       try
       {  
         HttpRequest postRequest = HttpRequest.newBuilder()
-           .uri(new URI("https://pokeapi.co/api/v2/pokemon/")).GET().build();
-         //.POST(BodyPublishers.ofString(jsonRequest))
+           .uri(new URI( "https://pokeapi.co/api/v2/pokemon/" + userInput.getText()) ).GET().build();
+
+System.out.println("https://pokeapi.co/api/v2/pokemon/" + userInput.getText());                     
                      
          //HttpResponse<String> postResponse = client.send(postRequest, BodyHandlers.ofString());
          
@@ -187,6 +166,6 @@ public class FXMLPokeTypeAppController implements Initializable
       Preferences p = Preferences.userNodeForPackage(FXMLPokeTypeAppController.class);
       
       // Get new Pokemon Data
-      updatePokeData();  
+      //updatePokeData();  
    }  
 }
