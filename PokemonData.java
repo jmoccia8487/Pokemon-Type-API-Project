@@ -5,5 +5,6 @@
 public class PokemonData
 {
    public Types types;
+   public Forms forms;
    public Results results;
 }
