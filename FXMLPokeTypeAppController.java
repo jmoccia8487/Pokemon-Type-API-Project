@@ -53,8 +53,6 @@ public class FXMLPokeTypeAppController implements Initializable
     
    // All of the variables referenced from the FXML file
    // The annotations are required to tie to Scene Builder 
-  // @FXML 
-  // private Label updateLabel;
 
    // Used to retrieve data from the API   
    private HttpClient client;
@@ -64,9 +62,7 @@ public class FXMLPokeTypeAppController implements Initializable
    
    //
    private Forms forms;
-   
-  // private Results results;
-   
+      
    // Keeps track of last time the pokemon data was updated
    private Date updateTime;
    
@@ -74,11 +70,21 @@ public class FXMLPokeTypeAppController implements Initializable
    @FXML 
    protected void handleSearchButtonAction(ActionEvent event)
    {  
-      updateUI();
+      // Set the nameOutput label
+      nameOutput.setText(capitalize(userInput.getText()));
+      
+      // Set the typeOutput Label
+      typeOutput.setText(capitalize(this.pokemonData.types.name));
+      
+      // Set the heightOutput Label
+     // heightOutput.setText( String.format("%d\u00B0" + "feet", this.pokemonData.types.height));
+      
+      // Set the lengthOutput Label
+     // weightOutput.setText( String.format("%d\u00B0" + "pounds", this.pokemonData.types.weight));
       
       updatePokeData();       
    }
-
+   
 
    // Updates the GUI to reflect new changes. 
    protected void updateUI()
@@ -89,9 +95,6 @@ public class FXMLPokeTypeAppController implements Initializable
 
       // Set the nameOutput label
       nameOutput.setText(userInput.getText());
-   
-      // Used to show the app is collecting data
-      //System.out.println("Updating Pokemon Data...");
    
       // Set the typeOutput Label
       typeOutput.setText(this.pokemonData.types.name);
@@ -109,6 +112,7 @@ public class FXMLPokeTypeAppController implements Initializable
    */
    protected void processPokemonData(String data)
    {
+         
       // Save the time this data was retrieved to be displayed in the GUI
       this.updateTime = new Date();
       
@@ -133,8 +137,6 @@ public class FXMLPokeTypeAppController implements Initializable
    	  // The app can use the same client for its entire life
       if(this.client == null)
          this.client = HttpClient.newHttpClient();
-		 
-    //  HttpClient client = HttpClient.newHttpClient();
 
       try
       {  
@@ -143,8 +145,6 @@ public class FXMLPokeTypeAppController implements Initializable
 
 System.out.println("https://pokeapi.co/api/v2/pokemon/" + userInput.getText());                     
                      
-         //HttpResponse<String> postResponse = client.send(postRequest, BodyHandlers.ofString());
-         
          // Makes a request to the website to get the data
          client.sendAsync(postRequest, BodyHandlers.ofString()).thenApply(HttpResponse::body).thenAccept(this::processPokemonData);
                  
@@ -163,9 +163,13 @@ System.out.println("https://pokeapi.co/api/v2/pokemon/" + userInput.getText());
    @Override
    public void initialize(URL location, ResourceBundle resources)
    {
-      Preferences p = Preferences.userNodeForPackage(FXMLPokeTypeAppController.class);
-      
-      // Get new Pokemon Data
-      //updatePokeData();  
+      Preferences p = Preferences.userNodeForPackage(FXMLPokeTypeAppController.class);  
+   } 
+   
+   // capitalize method which capitalizes the first letters of the name
+   public static final String capitalize(String str)   
+   {  
+      if (str == null || str.length() == 0) return str;  
+      return str.substring(0, 1).toUpperCase() + str.substring(1);  
    }  
-}
+}  
