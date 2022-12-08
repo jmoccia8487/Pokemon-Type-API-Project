@@ -19,7 +19,6 @@ import java.net.URL;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.io.IOException;
-import java.text.DecimalFormat;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -90,10 +89,10 @@ public class FXMLPokeTypeAppController implements Initializable
       typeOutput.setText(capitalize(this.pokemonData.types[0].type.name));
       
       // Set the heightOutput Label
-      heightOutput.setText(String.format(getHeightInProperUnit(this.pokemonData.height)+ " Feet"));
+      heightOutput.setText(getHeightInProperUnit(this.pokemonData.height)+ " Feet");
       
       // Set the lengthOutput Label
-      weightOutput.setText(String.format(getWeightInProperUnit(this.pokemonData.weight)+ " Pounds"));
+      weightOutput.setText(getWeightInProperUnit(this.pokemonData.weight)+ " Pounds");
    }
    
    // Method to convert weight to pounds
@@ -101,15 +100,15 @@ public class FXMLPokeTypeAppController implements Initializable
    {  
       double weight = this.pokemonData.weight / 4.536;
       
-      return weight;
+      return Math.round(weight);
    }
-   
+
    // Method to convert height to feet
    private double getHeightInProperUnit(int h)
    { 
       double height = this.pokemonData.height / 3.048;
-      
-      return height;
+
+      return Math.round(height);
    }
    
    /*
