@@ -19,6 +19,7 @@ import java.net.URL;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -61,9 +62,6 @@ public class FXMLPokeTypeAppController implements Initializable
    // This is a Top-level class heirarchy that saves the GSON processed JSON
    private PokemonData pokemonData; 
    
-   //
-   private Forms forms;
-   
    // An enum that represents what units to be used for the weight and height
    private enum Unit { Weight, Height };
    private Unit unit;
@@ -75,28 +73,18 @@ public class FXMLPokeTypeAppController implements Initializable
    @FXML 
    protected void handleSearchButtonAction(ActionEvent event)
    {    
-      // Set the nameOutput label
-      nameOutput.setText(capitalize(userInput.getText()));
-
-      updatePokeData(); 
-     // updateUI();      
+      updatePokeData();       
    }
    
-
    // Updates the GUI to reflect new changes. 
    protected void updateUI()
-   {
-      // Save the time this data was retrieved to be displayed in the GUI
-      this.updateTime = new Date();
-      
+   {      
       // Update the time data was refreshed.
       SimpleDateFormat fmt = new SimpleDateFormat("MM/dd/yy hh:mm a");
       updateTimeLabel.setText(fmt.format(this.updateTime));
       
       // Set the nameOutput label
-      //nameOutput.setText(capitalize(userInput.getText()));
-      
-      System.out.println("UpdateUI called");
+      nameOutput.setText(capitalize(userInput.getText()));
       
       // Set the typeOutput Label
       typeOutput.setText(capitalize(this.pokemonData.types[0].type.name));
@@ -111,19 +99,17 @@ public class FXMLPokeTypeAppController implements Initializable
    // Method to convert weight to pounds
    private double getWeightInProperUnit(int w)
    {  
-      if(this.unit == Unit.Weight)
-         return (w / 4.536);
-       else
-         return w;  
+      double weight = this.pokemonData.weight / 4.536;
+      
+      return weight;
    }
    
    // Method to convert height to feet
    private double getHeightInProperUnit(int h)
    { 
-      if(this.unit == Unit.Height)
-         return (h / 3.048);
-      else
-         return h;
+      double height = this.pokemonData.height / 3.048;
+      
+      return height;
    }
    
    /*
@@ -134,11 +120,10 @@ public class FXMLPokeTypeAppController implements Initializable
    {
          
       // Save the time this data was retrieved to be displayed in the GUI
-      //this.updateTime = new Date();
+      this.updateTime = new Date();
       
       // Some debugging text for the console.
       System.out.println(data);      
-      System.out.println("Please Print");
       
       // Converts the JSON data to a POJO
       Gson gson = new GsonBuilder().create();
