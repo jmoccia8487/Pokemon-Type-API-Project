@@ -1,6 +1,6 @@
 public class Types
 {
    public String name;
-   public double height;
-   public double weight;
+   public int height;
+   public int weight;
 }

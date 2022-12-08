@@ -43,7 +43,7 @@ public class FXMLPokeTypeAppController implements Initializable
    private Label typeOutput;
    
    @FXML
-    private Label updateTimeLabel;
+   private Label updateTimeLabel;
 
    @FXML
    private TextField userInput;
@@ -62,50 +62,69 @@ public class FXMLPokeTypeAppController implements Initializable
    
    //
    private Forms forms;
-      
+   
+   // An enum that represents what units to be used for the weight and height
+   private enum Unit { WEIGHT, HEIGHT };
+   private Unit unit;
+
    // Keeps track of last time the pokemon data was updated
    private Date updateTime;
    
    // Action to perform when the refresh button is pressed
    @FXML 
    protected void handleSearchButtonAction(ActionEvent event)
-   {  
+   {    
       // Set the nameOutput label
       nameOutput.setText(capitalize(userInput.getText()));
-      
-      // Set the typeOutput Label
-      typeOutput.setText(capitalize(this.pokemonData.types.name));
-      
-      // Set the heightOutput Label
-     // heightOutput.setText( String.format("%d\u00B0" + "feet", this.pokemonData.types.height));
-      
-      // Set the lengthOutput Label
-     // weightOutput.setText( String.format("%d\u00B0" + "pounds", this.pokemonData.types.weight));
-      
-      updatePokeData();       
+
+      updatePokeData(); 
+      updateUI();      
    }
    
 
    // Updates the GUI to reflect new changes. 
    protected void updateUI()
    {
+      // Save the time this data was retrieved to be displayed in the GUI
+      this.updateTime = new Date();
+      
       // Update the time data was refreshed.
       SimpleDateFormat fmt = new SimpleDateFormat("MM/dd/yy hh:mm a");
       updateTimeLabel.setText(fmt.format(this.updateTime));
-
+      
       // Set the nameOutput label
-      nameOutput.setText(userInput.getText());
-   
+      //nameOutput.setText(capitalize(userInput.getText()));
+      
+      System.out.println("UpdateUI called");
+      
       // Set the typeOutput Label
-      typeOutput.setText(this.pokemonData.types.name);
+      //typeOutput.setText(this.pokemonData.types.name);
       
       // Set the heightOutput Label
-      heightOutput.setText( String.format("%d\u00B0" + "feet", this.pokemonData.types.height));
+      heightOutput.setText(String.format("%d", Math.round(getHeightInProperUnit(this.pokemonData.height))));
       
       // Set the lengthOutput Label
-      weightOutput.setText( String.format("%d\u00B0" + "pounds", this.pokemonData.types.weight));
+      weightOutput.setText(String.format("%d", Math.round(getWeightInProperUnit(this.pokemonData.weight))));
    }
-      
+   
+   // Method to convert weight to pounds
+   private double getWeightInProperUnit(int w)
+   {  
+      if(this.unit == Unit.WEIGHT)
+         return (w / 4.536);
+       else
+         return w;  
+   }
+   
+   // Method to convert height to feet
+   private double getHeightInProperUnit(int h)
+   { 
+      if(this.unit == Unit.HEIGHT)
+         return (h / 3.048);
+      else
+         return h;
+   }
+   
    /*
    Once the Pokemon data is downloaded, this method is called
    to parse the JSON and create a plain old java object (POJO)
@@ -114,18 +133,18 @@ public class FXMLPokeTypeAppController implements Initializable
    {
          
       // Save the time this data was retrieved to be displayed in the GUI
-      this.updateTime = new Date();
+      //this.updateTime = new Date();
       
       // Some debugging text for the console.
       System.out.println(data);      
-      
+      System.out.println("Please Print");
       // Converts the JSON data to a POJO
       Gson gson = new Gson();
-      this.pokemonData = gson.fromJson(data, PokemonData.class);  
+      pokemonData = gson.fromJson(data, PokemonData.class);  
       
       // Schedule UI updates on the GUI thread
-       Platform.runLater( new Runnable() {
-                           public void run() {
+      Platform.runLater( new Runnable() {
+                          public void run() {
                               updateUI();
                            }
                         });
@@ -171,5 +190,5 @@ System.out.println("https://pokeapi.co/api/v2/pokemon/" + userInput.getText());
    {  
       if (str == null || str.length() == 0) return str;  
       return str.substring(0, 1).toUpperCase() + str.substring(1);  
-   }  
+   }      
 }  
