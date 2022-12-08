@@ -3,8 +3,8 @@
 
 public class PokemonData
 {
-   public Types types;
-   public Forms forms;
-   public int weight;
    public int height;
+   public int weight;
+   public Types[] types;
+   
 }

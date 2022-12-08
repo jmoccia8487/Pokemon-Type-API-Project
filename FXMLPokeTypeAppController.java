@@ -21,6 +21,7 @@ import java.net.URISyntaxException;
 import java.io.IOException;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class FXMLPokeTypeAppController implements Initializable
 {
@@ -64,7 +65,7 @@ public class FXMLPokeTypeAppController implements Initializable
    private Forms forms;
    
    // An enum that represents what units to be used for the weight and height
-   private enum Unit { WEIGHT, HEIGHT };
+   private enum Unit { Weight, Height };
    private Unit unit;
 
    // Keeps track of last time the pokemon data was updated
@@ -78,7 +79,7 @@ public class FXMLPokeTypeAppController implements Initializable
       nameOutput.setText(capitalize(userInput.getText()));
 
       updatePokeData(); 
-      updateUI();      
+     // updateUI();      
    }
    
 
@@ -98,19 +99,19 @@ public class FXMLPokeTypeAppController implements Initializable
       System.out.println("UpdateUI called");
       
       // Set the typeOutput Label
-      //typeOutput.setText(this.pokemonData.types.name);
+      typeOutput.setText(capitalize(this.pokemonData.types[0].type.name));
       
       // Set the heightOutput Label
-      heightOutput.setText(String.format("%d", Math.round(getHeightInProperUnit(this.pokemonData.height))));
+      heightOutput.setText(String.format(getHeightInProperUnit(this.pokemonData.height)+ " Feet"));
       
       // Set the lengthOutput Label
-      weightOutput.setText(String.format("%d", Math.round(getWeightInProperUnit(this.pokemonData.weight))));
+      weightOutput.setText(String.format(getWeightInProperUnit(this.pokemonData.weight)+ " Pounds"));
    }
    
    // Method to convert weight to pounds
    private double getWeightInProperUnit(int w)
    {  
-      if(this.unit == Unit.WEIGHT)
+      if(this.unit == Unit.Weight)
          return (w / 4.536);
        else
          return w;  
@@ -119,7 +120,7 @@ public class FXMLPokeTypeAppController implements Initializable
    // Method to convert height to feet
    private double getHeightInProperUnit(int h)
    { 
-      if(this.unit == Unit.HEIGHT)
+      if(this.unit == Unit.Height)
          return (h / 3.048);
       else
          return h;
@@ -138,16 +139,19 @@ public class FXMLPokeTypeAppController implements Initializable
       // Some debugging text for the console.
       System.out.println(data);      
       System.out.println("Please Print");
+      
       // Converts the JSON data to a POJO
-      Gson gson = new Gson();
-      pokemonData = gson.fromJson(data, PokemonData.class);  
+      Gson gson = new GsonBuilder().create();
+      pokemonData = gson.fromJson(data, PokemonData.class); 
       
       // Schedule UI updates on the GUI thread
-      Platform.runLater( new Runnable() {
-                          public void run() {
-                              updateUI();
-                           }
-                        });
+      Platform.runLater(new Runnable()
+      {
+         public void run()
+         {
+            updateUI();
+         }
+      });
    }
    
    // This method runs when the app is initialized
