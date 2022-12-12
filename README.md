@@ -1,5 +1,7 @@
 # Pokemon Type API Project
-Web API project
+Web API project by Jake Moccia, Micheal Brown, and Matthew Boehme
+
+Github URL - https://github.com/jmoccia8487/Pokemon-Type-API-Project
  
 # Important Files
 
