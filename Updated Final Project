@@ -1,0 +1,22 @@
+import com.google.gson.Gson;
+
+public class TestApiJsonParsingg {
+
+   public static void main(String[] args) {
+     
+     
+     
+      
+      
+      String data = """
+                        {"types": [{"slot": 1,"type": {"name": "normal", "url": "https://pokeapi.co/api/v2/type/1/"}}],"height": 3,"weight": 40,"type": {"name": "normal", "url": "https://pokeapi.co/api/v2/type/1/"}}
+                                          
+                    """;
+                                     
+      Gson gson = new Gson();      
+      PokemonData p = gson.fromJson(data, PokemonData.class); 
+      
+      System.out.println( p );   
+   }
+
+}
